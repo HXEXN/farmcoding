@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="ko" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmCoding: AI Smart Farm</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    
+    <!-- Blockly Scripts -->
+    <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/blocks_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/msg/ko.js"></script>
+
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#4CAF50',
+              'primary-hover': '#45a049',
+              'danger': '#f44336',
+              'danger-hover': '#e53e3e',
+              'light-bg': '#f7fafc',
+              'dark-bg': '#1a202c',
+              'light-panel': '#ffffff',
+              'dark-panel': '#2d3748',
+              'light-text': '#2d3748',
+              'dark-text': '#e2e8f0',
+              'light-border': '#e2e8f0',
+              'dark-border': '#4a5568',
+            },
+            animation: {
+                fadeInUp: 'fadeInUp 0.5s ease-out forwards',
+                fadeInDown: 'fadeInDown 0.5s ease-out forwards',
+            },
+            keyframes: {
+                fadeInUp: {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                fadeInDown: {
+                    '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                }
+            },
+            textShadow: {
+              DEFAULT: '0 2px 4px rgba(0,0,0,0.10)',
+            },
+          }
+        },
+        plugins: [
+            function({ addUtilities, theme }) {
+                const newUtilities = {
+                    '.text-shadow': {
+                        textShadow: theme('textShadow.DEFAULT'),
+                    },
+                }
+                addUtilities(newUtilities)
+            }
+        ]
+      }
+    </script>
+    <style type="text/tailwindcss">
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @layer components {
+          .card { @apply bg-light-panel dark:bg-dark-panel rounded-xl shadow-lg p-4 transition-all; }
+          .card-title { @apply text-xl font-bold mb-4 text-light-text dark:text-dark-text; }
+          .btn-primary { @apply bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary-hover transition-colors disabled:opacity-50; }
+          .btn-secondary { @apply bg-gray-200 dark:bg-gray-600 text-light-text dark:text-dark-text font-bold py-2 px-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors disabled:opacity-50; }
+          .btn-danger { @apply bg-danger text-white font-bold py-2 px-4 rounded-lg hover:bg-danger-hover transition-colors disabled:opacity-50; }
+          .form-input { @apply block w-full px-3 py-2 bg-white dark:bg-dark-bg border border-gray-300 dark:border-dark-border rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary; }
+          .file-input { @apply block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20; }
+        }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.8.0",
+    "recharts": "https://esm.sh/recharts@^3.0.2",
+    "firebase/": "https://esm.sh/firebase@^11.10.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/farmcoding/assets/index-DdcnaMkK.js"></script>
+</head>
+<body class="bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text font-sans">
+    <div id="root"></div>
+</body>
+</html>
